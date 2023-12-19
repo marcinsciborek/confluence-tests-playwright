@@ -9,7 +9,7 @@ public enum AtlassianSubtabs {
     ACCOUNT_SETTINGS("Account settings"),
     ATLASSIAN_SUPPORT("Atlassian Support"),
     ATLASSIAN_COMMUNITY("Atlassian Community"),
-    LICENCJE_SAMODZIELNIE_ZARZADZANE("Licencje samodzielnie zarządzane"),
+    SELF_MANAGED_LICENSING("Self managed licensing"),
     ATLASSIAN_DOCUMENTATION("Atlassian Documentation"),
     ATLASSIAN_COM("Atlassian.com"),
 
