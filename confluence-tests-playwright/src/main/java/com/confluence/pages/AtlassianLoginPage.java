@@ -8,6 +8,8 @@ import lombok.Getter;
 public enum AtlassianLoginPage {
 
     SIGN_IN("Sign in");
+    // input email
+    // input password
 
     private String value;
     public String getValue() {
