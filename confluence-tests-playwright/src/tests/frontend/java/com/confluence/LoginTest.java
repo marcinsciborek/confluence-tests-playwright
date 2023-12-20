@@ -1,7 +1,5 @@
-package com.confluence;
+package java.com.confluence;
 
 
 public class LoginTest {
-
-
 }
