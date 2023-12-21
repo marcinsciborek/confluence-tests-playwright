@@ -44,6 +44,7 @@ configurations {
 }
 
 dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     // Usunięto duplikaty deklaracji Lomboka i Allure
 
     playwright group: 'com.microsoft.playwright', name: 'playwright', version: '1.17.1'
