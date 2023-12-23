@@ -1,72 +1,28 @@
 plugins {
     id 'java'
-    id "io.qameta.allure" version "2.11.2"
+    id 'io.qameta.allure' version '2.11.2'
 }
 
 group 'com.confluence.tests'
 version '1.0'
-
-allureServe {
-    host = "localhost"
-}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // Playwright
     implementation 'com.microsoft.playwright:playwright:1.17.1'
-
-    // Lombok
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
-
-    // Allure - zaktualizowano wersję w zgodności z pluginem
-    implementation 'io.qameta.allure:allure-junit5:2.11.2'
-    implementation 'io.qameta.allure:allure-selenide:2.11.2'
-}
-
-allure {
-    autoconfigure = true
-    version = '2.14.0' // Zaktualizowano wersję Allure
+    implementation 'org.projectlombok:lombok:1.18.30'
+    testImplementation 'io.qameta.allure:allure-junit5:2.25.0'
+    implementation 'io.qameta.allure:allure-selenide:2.6.0'
+    implementation 'org.assertj:assertj-core:3.20.2'
+    implementation 'org.springframework:spring-context:5.3.9'
 }
 
 test {
     useTestNG()
     testLogging {
-        events "passed", "skipped", "failed"
-    }
-}
-
-configurations {
-    playwright
-}
-
-dependencies {
-    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
-    // Usunięto duplikaty deklaracji Lomboka i Allure
-
-    playwright group: 'com.microsoft.playwright', name: 'playwright', version: '1.17.1'
-
-    compileOnly 'org.projectlombok:lombok:1.18.30'
-    annotationProcessor 'org.projectlombok:lombok:1.18.30'
-
-    testCompileOnly 'org.projectlombok:lombok:1.18.30'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
-}
-
-task downloadPlaywright(type: Copy) {
-    dependsOn configurations.playwright
-    from configurations.playwright
-    into "$buildDir/playwright"
-}
-
-test {
-    dependsOn downloadPlaywright
-    systemProperty "java.library.path", file("$buildDir/playwright").absolutePath
-    doFirst {
-        jvmArgs("-Dplaywright.browsersPath=$buildDir/playwright")
+        events 'passed', 'skipped', 'failed'
     }
 }
 
@@ -75,7 +31,7 @@ targetCompatibility = '11'
 
 sourceSets {
     main {
-        java.srcDirs = ['src/main/java'] // Przywrócono domyślny katalog źródłowy
+        java.srcDirs = ['src/main/java']
     }
 }
 

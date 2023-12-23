@@ -1,5 +1,6 @@
 package com.confluence.model;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

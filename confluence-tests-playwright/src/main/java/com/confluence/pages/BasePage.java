@@ -1,11 +1,8 @@
 package com.confluence.pages;
 
-import com.confluence.model.AtlassianUsers;
 import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
-import com.microsoft.playwright.options.LoadState;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -17,7 +14,7 @@ public class BasePage {
     final Page page;
 
 
-    public BasePage(Page page, Playwright playwright) {
+    public BasePage(Page page) {
         this.page = page;
         BasePage.playwright = playwright;
     }
@@ -38,10 +35,5 @@ public class BasePage {
     public void close() {
         page.close();
     }
-
-
-    // input sign in button here
-    //ok, cancel, etc... universal buttons
-
 
 }
