@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
-@AllArgsConstructor
 
 public enum AtlassianSubtabs {
     ACCOUNT_SETTINGS("Account settings"),
@@ -22,6 +20,10 @@ public enum AtlassianSubtabs {
     ENTERPRISE("Enterprise");
 
     private String value;
+
+    private AtlassianSubtabs(String value) {
+        this.value = value;
+    }
 
     public String getValue() {
         return value;
